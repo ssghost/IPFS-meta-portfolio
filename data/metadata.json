@@ -25,7 +25,7 @@
     "category": "Project",
     "tech_stack": ["Python", "Reinforcement Learning", "TensorFlow", "Aave Protocol"],
     "key_achievement": "Designed a multi-threaded A3C engine to optimize capital efficiency and automate position management based on Health Factor.",
-    "challenge": "Modeling high-fidelity lending dynamics against extreme historical market volatility."
+    "challenge": "Designing complex reward functions for the A3C agent and modeling high-fidelity lending dynamics against extreme historical market volatility."
   },
   {
     "project": "Particle-Mint (Atomic Passkey Minting)",
@@ -68,5 +68,12 @@
     "tech_stack": ["Solidity", "Foundry", "Merkle Proofs", "Manual Audit"],
     "key_achievement": "Discovered a critical 'Merkle Binding Attack' in the reward distribution logic, preventing potential fund drains through cryptographic proof manipulation.",
     "challenge": "Navigating complex Merkle tree implementations and cross-contract state interactions to detect deep logic flaws."
+  },
+  {
+    "project": "Numerai Trading Bot",
+    "category": "Project",
+    "tech_stack": ["Time-Series ResNet", "numerapi", "Parquet", "Kaggle Notebooks"],
+    "key_achievement": "Developed an automated trading bot based on a Time-Series Residual Network (ResNet) for the Numerai Tournament, aiming for real NMR yield and establishing a 1-year Reputation track record.",
+    "challenge": "Processing 2000+ anonymous features using local MPS acceleration for EDA and Kaggle Nvidia P100 for deep ResNet model training, while implementing rigorous Feature Neutralization to prevent overfitting."
   }
 ]
