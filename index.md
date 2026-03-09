@@ -11,10 +11,11 @@ With 8+ years of experience, I bridge Quantitative Analysis with high-assurance 
 
 Click the terminal below and start exploring!
 
-<br>
-<br>
-<br>
+<iframe></iframe>
 
 <br>
-<br>
-<br>
+
+**Github Language Charts**
+
+<img src="https://raw.githubusercontent.com/ssghost/ssghost/master/profile-summary-card-output/tokyonight/1-repos-per-language.svg" alt="repos per language" width="45%" />
+<img src="https://raw.githubusercontent.com/ssghost/ssghost/master/profile-summary-card-output/tokyonight/2-most-commit-language.svg" alt="most commit language" width="45%" />
