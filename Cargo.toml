@@ -1,11 +1,31 @@
 [package]
 name = "ipfs-meta-portfolio"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
-ratatui = "0.26"
-crossterm = { version = "0.27", features = ["event-stream"] }
 wasm-bindgen = "0.2"
-reqwest = { version = "0.11", features = ["json"] } # 用於調用 Python API
-tokio = { version = "1", features = ["full"] }
+wasm-bindgen-futures = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[dependencies.reqwest]
+version = "0.11"
+features = ["json"]
+
+[dependencies.web-sys]
+version = "0.3"
+features = [
+  "Document",
+  "Element",
+  "HtmlElement",
+  "Window",
+  "console",
+  "EventTarget",
+  "MouseEvent",
+  "HtmlInputElement"
+]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+path = "app/ui/render.rs"

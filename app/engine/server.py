@@ -62,7 +62,23 @@ class PortfolioRAG:
             )
             
             documents.append(doc_text)
-            metadatas.append({"project": project_name, "category": category})
+            meta_dict = {
+                "project": project_name, 
+                "domain": domain,
+                "category": category,
+                "link": link,
+                "key_achievement": achievement,
+                "challenge": challenge
+            }
+
+            if item.get("language"):
+                meta_dict["language"] = ", ".join(item["language"])  
+            if item.get("tech_stack"):
+                meta_dict["tech_stack"] = ", ".join(item["tech_stack"])
+            if item.get("abstract"):
+                meta_dict["abstract"] = item["abstract"]
+
+            metadatas.append(meta_dict)
             ids.append(f"doc_{i}")
             
         self.collection.upsert(documents=documents, metadatas=metadatas, ids=ids)
@@ -70,17 +86,22 @@ class PortfolioRAG:
 
     def retrieve_context(self, query, n_results=2):
         if not self.collection:
-            return ""
+            return "", []
             
         print("Retrieving relevant context from ChromaDB...")
         results = self.collection.query(
             query_texts=[query],
             n_results=n_results
-        )
+        )        
+        context_text = ""
+        source_metadata = []
         
         if results and results["documents"] and results["documents"][0]:
-            return "\n\n".join(results["documents"][0])
-        return ""
+            context_text = "\n\n".join(results["documents"][0])
+            if "metadatas" in results and results["metadatas"][0]:
+                source_metadata = results["metadatas"][0]
+                
+        return context_text, source_metadata
 
     def generate_response(self, query, context):
         print(f"Asking local Ollama ({self.ollama_model})...")
@@ -110,7 +131,15 @@ class PortfolioRAG:
             return f"Error communicating with Ollama: {e}"
 
     def chat(self, query):
-        context = self.retrieve_context(query)
-        if context:
-            return self.generate_response(query, context)
-        return "I don't have enough context to answer that."
+        context_text, source_metadata = self.retrieve_context(query)
+        if context_text:
+            ai_response = self.generate_response(query, context_text)
+            return {
+                "answer": ai_response,
+                "metadata": source_metadata
+            }
+        
+        return {
+            "answer": "I don't have enough context to answer that.",
+            "metadata": []
+        }
