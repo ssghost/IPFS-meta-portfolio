@@ -211,5 +211,5 @@ __marimo__/
 # Added by cargo
 
 /target
-/chrome_db
+/chroma_db
 /pkg 
