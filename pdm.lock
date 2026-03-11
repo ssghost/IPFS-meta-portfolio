@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:96f62a7bd8fa37aee4882affff98112836d7e2fa111be00962344fae809e2908"
+content_hash = "sha256:16f546f6c46fc8de48958a5c4f4d3b302e3fb55620040dafb9618d10847c8758"
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
@@ -787,6 +787,21 @@ groups = ["default"]
 files = [
     {file = "oauthlib-3.3.1-py3-none-any.whl", hash = "sha256:88119c938d2b8fb88561af5f6ee0eec8cc8d552b7bb1f712743136eb7523b7a1"},
     {file = "oauthlib-3.3.1.tar.gz", hash = "sha256:0f0f8aa759826a193cf66c12ea1af1637f87b9b4622d46e866952bb022e538c9"},
+]
+
+[[package]]
+name = "ollama"
+version = "0.6.1"
+requires_python = ">=3.8"
+summary = "The official Python client for Ollama."
+groups = ["default"]
+dependencies = [
+    "httpx>=0.27",
+    "pydantic>=2.9",
+]
+files = [
+    {file = "ollama-0.6.1-py3-none-any.whl", hash = "sha256:fc4c984b345735c5486faeee67d8a265214a31cbb828167782dc642ce0a2bf8c"},
+    {file = "ollama-0.6.1.tar.gz", hash = "sha256:478c67546836430034b415ed64fa890fd3d1ff91781a9d548b3325274e69d7c6"},
 ]
 
 [[package]]

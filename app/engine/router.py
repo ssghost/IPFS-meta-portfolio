@@ -16,4 +16,4 @@ def chat_endpoint(request: ChatRequest):
 
 if __name__ == "__main__":
     print("Starting Server...")
-    uvicorn.run("app.main:app", host="0.0.0.0", port=9911, reload=True)
+    uvicorn.run("app.engine.router:app", host="0.0.0.0", port=9911, reload=True)

@@ -2,6 +2,7 @@ import json
 import chromadb
 import os
 import requests
+from chromadb.utils import embedding_functions
 
 class PortfolioRAG:
     def __init__(self, data_path="data/metadata.json", db_path="chroma_db", model_name="gpt-oss:20b-cloud"):
@@ -15,7 +16,14 @@ class PortfolioRAG:
     def _init_knowledge_base(self):
         print("Initializing Local Vector Database (ChromaDB)...")
         client = chromadb.PersistentClient(path=self.db_path)
-        self.collection = client.get_or_create_collection(name="meta_portfolio")
+        ollama_ef = embedding_functions.OllamaEmbeddingFunction(
+            url="http://localhost:11434/api/embeddings",
+            model_name="nomic-embed-text",
+        )
+        self.collection = client.get_or_create_collection(
+            name="meta_portfolio",
+            embedding_function=ollama_ef
+        )
         
         if not os.path.exists(self.data_path):
             print(f"Error: {self.data_path} not found.")
