@@ -137,8 +137,9 @@ export default function App() {
               strokeLinecap="round" 
               strokeLinejoin="round"
             >
-              <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
-              <path d="M8 16V8h8v8" />
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <circle cx="12" cy="12" r="6" />
+              <line x1="12" y1="12" x2="12" y2="6" />
             </svg>
           </a>
           <a 
