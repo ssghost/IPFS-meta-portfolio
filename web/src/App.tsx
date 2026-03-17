@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Mail } from "lucide-react";
 
 function ThemeToggle() {
   const [theme, setTheme] = useState(() => {
@@ -144,10 +143,21 @@ export default function App() {
           </a>
           <a 
             href="mailto:ssprof0@gmail.com" 
-            className="text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+            className="text-slate-400 hover:text-red-500 dark:hover:text-red-400 transition-colors"
             title="Email Me"
           >
-            <Mail className="w-6 h-6" />
+            <svg 
+              className="w-6 h-6" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
           </a>
         </footer>
       </div>
