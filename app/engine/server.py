@@ -3,26 +3,28 @@ import chromadb
 import os
 import requests
 from chromadb.utils import embedding_functions
+from groq import Groq
 
 class PortfolioRAG:
     def __init__(self, data_path="data/metadata.json", db_path="chroma_db", model_name="gpt-oss:20b-cloud"):
         self.data_path = data_path
         self.db_path = db_path
-        self.ollama_model = model_name
-        self.ollama_api_url = "http://localhost:11434/api/generate"
+        self.groq_api_key = os.environ.get("GROQ_API_KEY")
+        if self.groq_api_key:
+            self.groq_client = Groq(api_key=self.groq_api_key)
+        else:
+            print("WARNING: GROQ_API_KEY environment variable not set!")
         self.collection = None
         self._init_knowledge_base()
 
     def _init_knowledge_base(self):
         print("Initializing Local Vector Database (ChromaDB)...")
         client = chromadb.PersistentClient(path=self.db_path)
-        ollama_ef = embedding_functions.OllamaEmbeddingFunction(
-            url="http://localhost:11434/api/embeddings",
-            model_name="nomic-embed-text",
-        )
+        default_ef = embedding_functions.DefaultEmbeddingFunction()
+
         self.collection = client.get_or_create_collection(
             name="meta_portfolio",
-            embedding_function=ollama_ef
+            embedding_function=default_ef
         )
         
         if not os.path.exists(self.data_path):
@@ -125,18 +127,20 @@ class PortfolioRAG:
 
         Answer:"""
 
-        payload = {
-            "model": self.ollama_model,
-            "prompt": prompt,
-            "stream": False
-        }
-
         try:
-            response = requests.post(self.ollama_api_url, json=payload)
-            response.raise_for_status()
-            return response.json().get("response", "")
+            chat_completion = self.groq_client.chat.completions.create(
+                messages=[
+                    {
+                        "role": "user",
+                        "content": prompt,
+                    }
+                ],
+                model="llama3-8b-8192", 
+                temperature=0.3, 
+            )
+            return chat_completion.choices[0].message.content
         except Exception as e:
-            return f"Error communicating with Ollama: {e}"
+            return f"Error communicating with Groq API: {str(e)}"
 
     def chat(self, query):
         context_text, source_metadata = self.retrieve_context(query)

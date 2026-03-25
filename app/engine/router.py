@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from app.engine.server import PortfolioRAG
 import uvicorn
+import os
 
 app = FastAPI(title="Meta Portfolio RAG API")
 rag_engine = PortfolioRAG()
@@ -16,4 +17,5 @@ def chat_endpoint(request: ChatRequest):
 
 if __name__ == "__main__":
     print("Starting Server...")
-    uvicorn.run("app.engine.router:app", host="0.0.0.0", port=9911, reload=True)
+    port = int(os.environ.get("PORT", 9911))
+    uvicorn.run("app.engine.router:app", host="0.0.0.0", port=port, reload=True)
