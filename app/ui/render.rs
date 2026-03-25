@@ -136,11 +136,11 @@ pub fn run() -> Result<(), JsValue> {
                 border: 1px solid #00FF0050;
             }
         </style>
-        <div class="header">> EDMOND_AG_OS v1.0 [RETRIEVING FROM LOCAL_MCP_DB...]</div>
+        <div class="header">> METAP_AG_OS v1.0 [RETRIEVING FROM LOCAL_MCP_DB]</div>
         <div class="split-container">
             <div class="chat-pane">
                 <h3>System::Ask Agent</h3>
-                <div id="chat-history">SYSTEM> Hello! I am Edmond's AI assistant (Local RAG). Ask me about his projects, skills, or specific tech stacks!</div>
+                <div id="chat-history">SYSTEM> Hello! I am Edmond's AI assistant. Ask me about his projects, skills, or specific tech stacks!</div>
                 <div class="input-group">
                     <input type="text" id="chat-input" placeholder="root@edmond_portfolio:~$ enter command..." />
                     <button id="send-btn">Send</button>
