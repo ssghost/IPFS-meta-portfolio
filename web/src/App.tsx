@@ -67,8 +67,8 @@ export default function App() {
           With 8+ years of experience, I bridge Quantitative Analysis with high-assurance Protocol Engineering and advanced AI Agent ecosystems. I specialize in risk modeling for lending markets, cross-chain smart contract architecture across EVM and Solana (SVM), and local-first RAG systems using the Model Context Protocol (MCP), powered by Python, Rust, Solidity, and multiple deep learning frameworks.
         </p>
 
-        <p className="mb-4 font-bold text-slate-800 dark:text-slate-200">
-          Welcome to my interactive Meta-Portfolio. Under the hood, this terminal is a fully functional RAG (Retrieval-Augmented Generation) agent powered by my complete project database. You can converse with it directly. Try asking:
+        <p className="mb-4 text-slate-800 dark:text-slate-200 leading-relaxed">
+          Welcome to my interactive Meta-Portfolio. Under the hood, this terminal is a fully functional RAG (Retrieval-Augmented Generation) agent powered by my complete project database. Currently, the database contains <strong>3 articles</strong> and <strong>9 code projects</strong>, categorized into 4 core domains: <strong>EVM Specialist</strong>, <strong>SVM Specialist</strong>, <strong>AI Application & Security</strong>, and <strong>Crypto Quant Engineer</strong>. You can converse with it directly. Try asking:
         </p>
 
         <ul className="list-disc pl-6 mb-8 space-y-2 italic text-slate-600 dark:text-slate-400">
