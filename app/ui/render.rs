@@ -142,7 +142,7 @@ pub fn run() -> Result<(), JsValue> {
                 <h3>System::Ask Agent</h3>
                 <div id="chat-history">SYSTEM> Hello! I am Edmond's AI assistant. Ask me about his projects, skills, or specific tech stacks!</div>
                 <div class="input-group">
-                    <input type="text" id="chat-input" placeholder="root@edmond_portfolio:~$ enter command..." />
+                    <input type="text" id="chat-input" placeholder="enter here..." />
                     <button id="send-btn">Send</button>
                 </div>
             </div>

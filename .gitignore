@@ -212,7 +212,7 @@ __marimo__/
 
 /target
 /chroma_db
-/pkg 
+/public/pkg 
 
 # Logs
 logs
