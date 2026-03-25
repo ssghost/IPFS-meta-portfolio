@@ -22,7 +22,7 @@ async fn fetch_ai_response(query: &str) -> Result<ChatResponse, JsValue> {
     };
 
     let res = client
-        .post("http://localhost:9911/api/chat")
+        .post("https://sdckei-meta-portfolio-backend.hf.space/api/chat")
         .json(&request_body)
         .send()
         .await
@@ -215,7 +215,7 @@ pub fn run() -> Result<(), JsValue> {
                 }
                 Err(_e) => {
                     history_div.set_inner_html(&format!("{}<br><br><b>Error:</b> Could not connect to the server.", current_history));
-                    meta_div.set_inner_html("<p style='color:red;'>Connection to backend failed. Is FastAPI running on port 9911?</p>");
+                    meta_div.set_inner_html("<p style='color:red;'>Connection to backend failed. Is FastAPI running on the correct port?</p>");
                 }
             }
         });
