@@ -53,33 +53,103 @@ pub fn run() -> Result<(), JsValue> {
     root.set_inner_html(
         r#"
         <style>
-            #wasm-portfolio-root { font-family: sans-serif; height: 100vh; margin: 0; display: flex; flex-direction: column; }
-            .header { background: #111827; color: white; padding: 1rem; text-align: center; font-weight: bold; }
-            .split-container { display: flex; flex: 1; overflow: hidden; }
-            .chat-pane { flex: 1; padding: 1.5rem; display: flex; flex-direction: column; border-right: 2px solid #e5e7eb; background: #ffffff; }
-            .meta-pane { flex: 1; padding: 1.5rem; background: #f9fafb; overflow-y: auto; }
+            #wasm-portfolio-root { 
+                font-family: 'Courier New', Courier, monospace; 
+                height: 100vh; 
+                margin: 0; 
+                display: flex; 
+                flex-direction: column; 
+                background: #000000; 
+                color: #00FF00; 
+            }
+            .header { 
+                background: #0a0a0a; 
+                color: #00FF00; 
+                padding: 1rem; 
+                text-align: center; 
+                font-weight: bold; 
+                border-bottom: 2px solid #111827; 
+                text-shadow: 0 0 5px #00FF00; 
+            }
+            .split-container { display: flex; flex: 1; overflow: hidden; background: #000000; }
+            
+            .chat-pane { 
+                flex: 1; 
+                padding: 1.5rem; 
+                display: flex; 
+                flex-direction: column; 
+                border-right: 2px solid #111827; 
+                background: #000000; 
+            }
+            h3 { color: #00FF00; border-bottom: 1px solid #111827; pb-2; }
+            
+            #chat-history { 
+                flex: 1; 
+                overflow-y: auto; 
+                border: 1px solid #111827; 
+                padding: 1rem; 
+                border-radius: 0.375rem; 
+                background: #050505; 
+                white-space: pre-wrap; 
+                margin-bottom: 1rem;
+                color: #00FF00;
+                font-size: 0.9rem;
+            }
+            
             .input-group { display: flex; margin-top: 1rem; }
-            #chat-input { flex: 1; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.375rem 0 0 0.375rem; font-size: 1rem; }
-            #send-btn { background: #3b82f6; color: white; border: none; padding: 0.75rem 1.5rem; cursor: pointer; border-radius: 0 0.375rem 0.375rem 0; font-weight: bold; }
-            #send-btn:hover { background: #2563eb; }
-            #chat-history { flex: 1; overflow-y: auto; border: 1px solid #e5e7eb; padding: 1rem; border-radius: 0.375rem; background: #f3f4f6; white-space: pre-wrap; margin-bottom: 1rem;}
-            .meta-card { background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-            .tag { display: inline-block; background: #e0e7ff; color: #3730a3; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.875rem; margin: 0.25rem; }
+            #chat-input { 
+                flex: 1; 
+                padding: 0.75rem; 
+                border: 2px solid #111827; 
+                border-radius: 0.375rem 0 0 0.375rem; 
+                font-size: 1rem; 
+                background: #111827; 
+                color: #00FF00; 
+                font-family: monospace;
+                outline: none;
+            }
+            #chat-input:focus { border-color: #00FF00; box-shadow: 0 0 10px #00FF00; }
+            #chat-input::placeholder { color: #005500; }
+            
+            #send-btn { 
+                background: #00FF00; 
+                color: #000000; 
+                border: none; 
+                padding: 0.75rem 1.5rem; 
+                cursor: pointer; 
+                border-radius: 0 0.375rem 0.375rem 0; 
+                font-weight: bold; 
+            }
+            #send-btn:hover { background: #33FF33; box-shadow: 0 0 10px #00FF00; }
+            
+            .meta-pane { flex: 1; padding: 1.5rem; background: #0a0a0a; overflow-y: auto; color: #c9d1d9; }
+            .meta-card { background: #050505; color: #c9d1d9; padding: 1.5rem; border-radius: 0.5rem; border: 1px solid #111827; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+            
+            .tag { 
+                display: inline-block; 
+                background: #111827; 
+                color: #00FF00; 
+                padding: 0.25rem 0.5rem; 
+                border-radius: 9999px; 
+                font-size: 0.875rem; 
+                margin: 0.25rem; 
+                border: 1px solid #00FF0050;
+            }
         </style>
-        <div class="header">Edmond's AI Agent & Portfolio Explorer</div>
+        <div class="header">> EDMOND_AG_OS v1.0 [RETRIEVING FROM LOCAL_MCP_DB...]</div>
         <div class="split-container">
             <div class="chat-pane">
-                <h3>Ask AI Agent</h3>
-                <div id="chat-history">Hello! I am Edmond's AI assistant. Ask me about his projects, skills, or specific tech stacks!</div>
+                <h3>System::Ask Agent</h3>
+                <div id="chat-history">SYSTEM> Hello! I am Edmond's AI assistant (Local RAG). Ask me about his projects, skills, or specific tech stacks!</div>
                 <div class="input-group">
-                    <input type="text" id="chat-input" placeholder="e.g. Tell me about the Solana Lending Pool..." />
+                    <input type="text" id="chat-input" placeholder="root@edmond_portfolio:~$ enter command..." />
                     <button id="send-btn">Send</button>
                 </div>
             </div>
             <div class="meta-pane">
-                <h3>Relevant Portfolio Metadata</h3>
+                <h3>System::Relevant Metadata</h3>
                 <div id="meta-content" class="meta-card">
-                    <p style="color: #6b7280; font-style: italic;">Ask a question to see the matching project details here.</p>
+                    <p style="color: #6b7280; font-style: italic;">Wait for user query. RAG matching details will be displayed here...</p>
                 </div>
             </div>
         </div>

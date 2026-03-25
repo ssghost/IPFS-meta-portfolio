@@ -40,7 +40,11 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <ThemeToggle />
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-sm flex items-center justify-center font-bold font-mono text-lg bg-blue-600 text-white shadow-lg">E</div>
+            <img 
+              src="https://gravatar.com/userimage/100300968/570467f280b16e07a342eef7641735fc.jpeg?size=64" 
+              alt="Edmond Avatar" 
+              className="w-8 h-8 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700" 
+            />
             <span className="font-bold text-lg tracking-tight font-mono">Meta-Portfolio</span>
           </div>
           <div className="text-[10px] font-mono px-2 py-1 rounded bg-slate-900 text-slate-500 border border-slate-800 hidden sm:block">
@@ -50,12 +54,14 @@ export default function App() {
       </nav>
 
       <div className="max-w-4xl mx-auto mt-10 p-4">
-        <h1 className="text-3xl font-bold mb-2 tracking-tight text-slate-800 dark:text-slate-100">
-          Meta-Portfolio of Edmond Song
-        </h1>
-        <h2 className="text-xl font-mono text-slate-500 dark:text-slate-400 mb-6">
-          Senior DeFi and AI Research Engineer
-        </h2>
+        <div className="flex flex-col items-center mb-10 mt-2 border-b-2 border-slate-200 dark:border-slate-700 pb-6">
+          <h1 className="text-3xl font-bold mb-2 tracking-tight text-slate-800 dark:text-slate-100 text-center">
+            Meta-Portfolio of Edmond Song
+          </h1>
+          <h2 className="text-xl font-mono text-slate-500 dark:text-slate-400 text-center">
+            Senior DeFi and AI Research Engineer
+          </h2>
+        </div>
 
         <p className="mb-6 leading-relaxed text-slate-700 dark:text-slate-300">
           With 8+ years of experience, I bridge Quantitative Analysis with high-assurance Protocol Engineering and advanced AI Agent ecosystems. I specialize in risk modeling for lending markets, cross-chain smart contract architecture across EVM and Solana (SVM), and local-first RAG systems using the Model Context Protocol (MCP), powered by Python, Rust, Solidity, and multiple deep learning frameworks.
@@ -100,7 +106,7 @@ export default function App() {
             />
           </div>
         </div>
-        <footer className="mt-16 pb-8 flex justify-center items-center gap-8 border-t border-slate-200 dark:border-slate-800 pt-8">
+        <footer className="mt-16 pb-8 flex justify-center items-center gap-8 border-t-2 border-slate-200 dark:border-slate-800 pt-8">
           <a 
             href="https://github.com/ssghost" 
             target="_blank" 
