@@ -1,0 +1,29 @@
+{
+  "name": "Meta-Portfolio",
+  "description": "Senior DeFi & AI Research Engineer Edmond Song aka Stardust Kei Meta Portfolio.",
+  "image": "ipfs://QmVzsFo3o5kEbGaH8zBL5nBD6sjGVCRPg98yRLLCTfTk4e",
+  "external_url": "https://meta-portfolio-frontend.vercel.app",
+  "source_uri": "ipfs://QmYeq3W6GFKMxAazm1sLZXfiJRz91XankVN1eV2GjFEg6v",
+  "attributes": [
+    {
+      "trait_type": "Source Code CID",
+      "value": "QmYeq3W6GFKMxAazm1sLZXfiJRz91XankVN1eV2GjFEg6v"
+    },
+    { 
+      "trait_type": "Repository", 
+      "value": "ssghost/IPFS-meta-portfolio" 
+    },
+    {
+      "trait_type": "Commit",
+      "value": "00784b9 (origin/deploy)"
+    },
+    {
+      "trait_type": "Languages",
+      "value": "Python, Typescript, Rust, HTML, CSS, Solidity"
+    },
+    {
+      "trait_type": "License",
+      "value": "MIT"
+    }
+  ]
+}
