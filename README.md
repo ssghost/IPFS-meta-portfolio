@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build: BuidlGuidl Batch 23](https://img.shields.io/badge/BuidlGuidl-Batch%2023-blue)](https://buidlguidl.com/)
 [![Network: Optimism](https://img.shields.io/badge/Network-Optimism-red)](https://optimistic.etherscan.io/)
+[![AI: Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-FFD21E)](https://huggingface.co/)
+[![Deployment: Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?logo=vercel&logoColor=white)](https://meta-portfolio-frontend.vercel.app/)
 
 ## Overview
 
