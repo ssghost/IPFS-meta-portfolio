@@ -21,7 +21,7 @@
     "project": "The Sword of Words: The Evolution of Prompt Injection",
     "category": "Article",
     "domain": "Domain 3 (AI Security & LLMs)",
-    "link": "https://hackernoon.com/the_sword_of_words_the_evolution_of_prompt_injection",
+    "link": "https://hackernoon.com/the-sword-of-words-the-evolution-of-prompt-injection",
     "abstract": "A comprehensive deep dive into the evolution of Prompt Injection (PI) in Large Language Models, exploring the transition from foundational Attention Hijacking to advanced Token Smuggling and Indirect Prompt Injection within autonomous agent ecosystems.",
     "key_achievement": "Successfully authored this in-depth technical research for HackerNoon, establishing a robust framework for understanding how natural language has become the core execution layer of modern software. The methodology synthesizes interactive gaming mechanics with transformer architecture to map the next generation of AI exploits, providing actionable insights to secure autonomous agent ecosystems.",
     "challenge": "The primary difficulty involved demonstrating the erosion of traditional computer science security boundaries, specifically the segregation of operational instructions and passive data. It required meticulously analyzing tokenization processes and attention patterns across platforms like Gandalf and AI Dungeon to prove how linguistic manipulation and token smuggling act as critical, system-level vulnerabilities."
