@@ -36,7 +36,7 @@ The system is composed of three core layers, ensuring scalability, speed, and de
 ## 🔗 Verifiable Links
 
 * **Live Demo**: [https://meta-portfolio-frontend.vercel.app/](https://meta-portfolio-frontend.vercel.app/)
-* **NFT Contract (Optimism)**: `0x832F4120a1A745D8DA4D8A6A8C53C598284ad3aD`
+* **NFT Contract (Optimism)**: `0x832F4120a1A745D8DA4D8A6A8C53C598284ad3aD`, `0xb6299647A522692051323580E6E4e80E443F5741`(Backup)
 * **Mint Transaction**: [View on Optimistic Etherscan](https://optimistic.etherscan.io/tx/0x31951c7c638f1f189685dcae2acf8d00e3a1447db306ca37a348d6cfce2b3d80)
 
 ---
